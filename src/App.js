@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const App = () => {
+/*const App = () => {
   const [item, setItem] = useState(1);
   const incrementItem = () => setItem(item + 1);
   const decrementItem = () => setItem(item - 1);
@@ -43,6 +43,24 @@ class AppUgly extends React.Component {
       };
     });
   };
-}
+}*/
+
+const useInput = (initailValue) => {
+  const [value, setValue] = useState(initailValue);
+  const onChange = (event) => {
+    console.log(event.target);
+  };
+  return { value, onChange };
+};
+
+const App = () => {
+  const name = useInput("Mr.");
+  return (
+    <div className="App">
+      <h1>Hello</h1>
+      <input placeholder="Name" {...name} />
+    </div>
+  );
+};
 
 export default App;
