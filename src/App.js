@@ -45,16 +45,26 @@ class AppUgly extends React.Component {
   };
 }*/
 
-const useInput = (initailValue) => {
+const useInput = (initailValue, validator) => {
   const [value, setValue] = useState(initailValue);
   const onChange = (event) => {
-    console.log(event.target);
+    const {
+      target: { value },
+    } = event;
+    let willUpdate = true;
+    if (typeof validator === "function") {
+      willUpdate = validator(value);
+    }
+    if (willUpdate) {
+      setValue(value);
+    }
   };
   return { value, onChange };
 };
 
 const App = () => {
-  const name = useInput("Mr.");
+  const maxLen = (value) => value.length <= 10;
+  const name = useInput("Mr.", maxLen);
   return (
     <div className="App">
       <h1>Hello</h1>
