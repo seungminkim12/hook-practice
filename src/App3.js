@@ -18,19 +18,20 @@ import React, { useState, useEffect } from "react";
   );
 };*/
 
-const useTitle = (value) => {
-  const [title, setTitle] = useState(value);
-  const getTitle = () => {
-    const tagTitle = document.querySelector("title");
-    tagTitle.innerText = title;
+const useTitle = (initialValue) => {
+  const [title, setTitle] = useState(initialValue);
+  const updateTitle = () => {
+    const htmlTitle = document.querySelector("title");
+    htmlTitle.innerText = title;
   };
-  useEffect(getTitle, [title]);
+  useEffect(updateTitle, [title]);
   return setTitle;
 };
 
 const App3 = () => {
-  const oldTitle = useTitle("Loadddding");
-  setTimeout(() => oldTitle("home"), 5000);
+  const titleUpdater = useTitle("Loadiiiiing");
+  setTimeout(() => titleUpdater("home"), 3000);
+
   return (
     <div>
       <h1>hello</h1>
