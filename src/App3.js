@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 /*const App3 = () => {
   const [number, setNumber] = useState(0);
@@ -17,7 +17,7 @@ import React, { useState, useEffect } from "react";
     </div>
   );
 };*/
-
+/*
 const useTitle = (initialValue) => {
   const [title, setTitle] = useState(initialValue);
   const updateTitle = () => {
@@ -35,6 +35,21 @@ const App3 = () => {
   return (
     <div>
       <h1>hello</h1>
+    </div>
+  );
+};
+*/
+
+const useClick = (onClick) => {
+  const element = useRef;
+  console.log();
+};
+
+const App3 = () => {
+  const title = useClick();
+  return (
+    <div>
+      <h1 ref={title}>Hello</h1>
     </div>
   );
 };
